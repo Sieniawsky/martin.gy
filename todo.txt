@@ -1,9 +1,9 @@
-1. Adding image padding
-2. Add media query for body padding
-3. Add image
-4. Add text
-5. Add wrap, push, and footer
-6. Add footer links
+* 1. Adding image padding
+* 2. Add media query for body padding
+* 3. Add image
+* 4. Add text
+* 5. Add wrap, push, and footer
+* 6. Add footer links
 7. Create and consolidate to styles.css
 8. Google Analytics
 9. Configure Go-Daddy
