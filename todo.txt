@@ -6,5 +6,5 @@
 * 6. Add footer links
 * 7. Create and consolidate to styles.css
 * 8. Google Analytics
-9. Configure Go-Daddy
-10. Deploy and Test
+* 9. Configure Go-Daddy
+* 10. Deploy and Test
