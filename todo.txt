@@ -4,7 +4,7 @@
 * 4. Add text
 * 5. Add wrap, push, and footer
 * 6. Add footer links
-7. Create and consolidate to styles.css
-8. Google Analytics
+* 7. Create and consolidate to styles.css
+* 8. Google Analytics
 9. Configure Go-Daddy
 10. Deploy and Test
