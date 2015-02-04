@@ -1,4 +1,4 @@
 martin.gy
 =========
 
-Personal website. Built using Skeleton.
+Personal website inspired by Dave Gamache.
