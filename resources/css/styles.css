@@ -3,9 +3,13 @@
 /* Global */
 html {
     font-family: "Roboto", sans-serif;
+    color: rgba(216, 255, 0, 1);
+}
+
+h1,
+h2 {
     font-weight: 900;
     font-style: italic;
-    color: rgba(216, 255, 0, 1);
 }
 
 /* Background */
@@ -55,14 +59,17 @@ html {
     display: inline-block;
     z-index: 2;
     vertical-align: middle;
+    width: 960px;
+    margin: auto;
+    padding: auto;
 }
 
-.name {
+.text-name {
     font-size: 60px;
     margin-bottom: 0px;
 }
 
-.description {
+.text-description {
     font-size: 30px;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -84,4 +91,8 @@ html {
 .link {
     color: rgb(216, 255, 0);
     text-decoration: none;
+}
+
+.link:hover {
+    cursor: pointer;
 }
