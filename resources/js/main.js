@@ -1,43 +1,59 @@
 $(function() {
+    'use strict';
 
-    // Find the root insertion point and
-    // all template scripts.
+    // Find the root insertion point and all template scripts.
     var root = $('#root');
     var indexTemplate = $('#index-template');
     var aboutTemplate = $('#about-template');
     var contactTemplate = $('#contact-template');
 
+    var addIndexListeners = function() {
+        $('#about-button').click(renderAbout);
+        $('#contact-button').click(renderContact);
+    };
+
     var addBackListener = function() {
-        $('#back-button').click(function() {
-            renderIndex();
-        });
+        $('#back-button').click(renderIndex);
+    };
+
+    var animateOnce = function(next) {
+        root.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', next);
     };
 
     var renderAbout = function() {
-        root.empty();
-        root.append(aboutTemplate.html());
-        addBackListener();
+        animateOnce(function() {
+            root.empty();
+            root.append(aboutTemplate.html());
+            animateOnce(addBackListener);
+            root.removeClass('fadeOut');
+            root.addClass('fadeIn');
+        });
+        root.addClass('fadeOut');
     };
 
     var renderContact = function() {
-        root.empty();
-        root.append(contactTemplate.html());
-        addBackListener();
+        animateOnce(function() {
+            root.empty();
+            root.append(contactTemplate.html());
+            animateOnce(addBackListener);
+            root.removeClass('fadeOut');
+            root.addClass('fadeIn');
+        });
+        root.addClass('fadeOut');
     };
 
     var renderIndex = function() {
-        root.empty();
-        root.append(indexTemplate.html());
-
-        $('#about-button').click(function() {
-            renderAbout();
+        animateOnce(function() {
+            root.empty();
+            root.append(indexTemplate.html());
+            animateOnce(addIndexListeners);
+            root.removeClass('fadeOut');
+            root.addClass('fadeIn');
         });
-
-        $('#contact-button').click(function() {
-            renderContact();
-        });
+        root.addClass('fadeOut');
     };
 
-    // First time load, render the index
-    renderIndex();
+    // First time load, render the index without animations
+    root.append(indexTemplate.html());
+    addIndexListeners();
 });
