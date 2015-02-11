@@ -7,50 +7,37 @@ $(function() {
     var aboutTemplate = $('#about-template');
     var contactTemplate = $('#contact-template');
 
-    var addIndexListeners = function() {
-        $('#about-button').click(renderAbout);
-        $('#contact-button').click(renderContact);
-    };
-
-    var addBackListener = function() {
-        $('#back-button').click(renderIndex);
-    };
+    var noOp = function() {};
 
     var animateOnce = function(next) {
         root.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', next);
     };
 
-    var renderAbout = function() {
+    var render = function(template, listenerAdder) {
         animateOnce(function() {
             root.empty();
-            root.append(aboutTemplate.html());
-            animateOnce(addBackListener);
+            root.append(template.html());
+            animateOnce(noOp);
             root.removeClass('fadeOut');
+            listenerAdder();
             root.addClass('fadeIn');
         });
         root.addClass('fadeOut');
     };
 
-    var renderContact = function() {
-        animateOnce(function() {
-            root.empty();
-            root.append(contactTemplate.html());
-            animateOnce(addBackListener);
-            root.removeClass('fadeOut');
-            root.addClass('fadeIn');
+    var addIndexListeners = function() {
+        $('#about-button').click(function() {
+            render(aboutTemplate, addBackListener);
         });
-        root.addClass('fadeOut');
+        $('#contact-button').click(function() {
+            render(contactTemplate, addBackListener);
+        });
     };
 
-    var renderIndex = function() {
-        animateOnce(function() {
-            root.empty();
-            root.append(indexTemplate.html());
-            animateOnce(addIndexListeners);
-            root.removeClass('fadeOut');
-            root.addClass('fadeIn');
+    var addBackListener = function() {
+        $('#back-button').click(function() {
+            render(indexTemplate, addIndexListeners);
         });
-        root.addClass('fadeOut');
     };
 
     // First time load, render the index without animations
